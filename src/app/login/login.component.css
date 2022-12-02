@@ -1,0 +1,32 @@
+#fo{
+    position: relative;
+    top: 140px;
+    border-radius: 15px;
+}
+.bu{
+    background-color: rgb(2, 36, 2);
+    color: white;
+    width: 62px;
+    border-radius: 5px;
+    height: 35px;
+    letter-spacing: 1px;
+}
+
+.bu:hover{
+    width: 65px;
+    background-color: rgb(0, 10, 3);
+    transition: 0.1s;
+    
+}
+.re{
+     color: rgb(3, 3, 65);
+     text-decoration: none;
+}
+.re:hover{
+    color: rgb(154, 5, 5);
+}
+.heading{
+    text-align: center;
+    top: 110px;
+    position: relative;
+}
