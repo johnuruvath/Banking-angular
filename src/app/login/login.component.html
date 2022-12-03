@@ -6,15 +6,15 @@
         <h1 class="text-center text-white">Login Page</h1>
         
         <div class="mt-2 p-2">
-            <input type="text" name="acno" #acno placeholder="Enter Ac number" class="form-control" style="background: white; " id="acid">
+            <input type="text" name="acno" [(ngModel)]="acno" placeholder="Enter Ac number" class="form-control" style="background: white; " id="acid">
         </div>
 
         <div class="mt-2 p-2">
-            <input type="password" name="psw" #psw [placeholder]="data" class="form-control" id="pid">
+            <input type="password" name="psw" [(ngModel)]="psw" [placeholder]="data" class="form-control" id="pid">
         </div>
 
         <div class="text-center mt-2 p-2">
-            <button type="submit" (click)="login(acno,psw)" class="btn btn-success" class="bu">login</button><br><br>
+            <button type="submit" (click)="login()" class="btn btn-success" class="bu">login</button><br><br>
             <p  class="text-white">new user?  <a class="re"  href="" >Register</a></p>
         </div>
     </div>
