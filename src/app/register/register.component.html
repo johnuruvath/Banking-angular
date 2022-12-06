@@ -1,0 +1,22 @@
+<form>
+    <div class="container w-50 border mt-5 p-3" style="background:rgba(29, 47, 41, 0.5); " id="fo">
+        <h1 class="text-center text-white">Registration Form</h1>
+        
+        <div class="mt-2 p-2">
+            <input type="text" name="uname" [(ngModel)]="uname" placeholder="Username" class="form-control" style="background: white; " id="acid">
+        </div>
+        <div class="mt-2 p-2">
+            <input type="text" name="acno" [(ngModel)]="acno" placeholder="Account number" class="form-control" style="background: white; " id="acid">
+        </div>
+
+
+        <div class="mt-2 p-2">
+            <input type="password" name="psw" [(ngModel)]="psw" placeholder="Password" class="form-control" id="pid">
+        </div>
+
+        <div class="text-center mt-2 p-2">
+            <button type="submit" (click)="register()" class="btn btn-success" class="bu">signup</button><br><br>
+        </div>
+    </div>
+</form>
+
