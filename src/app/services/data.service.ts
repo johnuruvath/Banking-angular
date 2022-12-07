@@ -68,21 +68,31 @@ export class DataService {
   }
 
 
-//   withdraw(acno:any,password:any,amount:any){
-//     var userDetails = this.userDetails
-//     var amnt1=parseInt(amount)
-//     if(acno in userDetails){
-//       if(password==userDetails[acno]["password"]){
-//         userDetails[acno]["balance"]-=amnt1
-//         return userDetails[acno]["balance"]
-//       }
-//       else{
-//         return false
-//       }
-//     }
-//     else{
-//       return false
-//     }
-//   }
-// }
+  withdraw(acno: any, password: any, amount: any) {
+    var userDetails = this.userDetails
+    var amnt = parseInt(amount)
+    if (acno in userDetails) {
+      if (password == userDetails[acno]["password"]) {
+        if (amnt <= userDetails[acno]["balance"]) {
+          userDetails[acno]["balance"] -= amnt
+          return userDetails[acno]["balance"]
+        }
+        else {
+          alert("insufficient balance")
+          return false
+        }
+      }
+      else {
+        alert("incorrect password")
+        return false
+
+      }
+    }
+    else {
+      alert("incorrect ac num")
+      return false
+    }
+  }
+  
+}
 

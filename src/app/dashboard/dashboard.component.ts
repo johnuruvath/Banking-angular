@@ -33,18 +33,15 @@ export class DashboardComponent {
     }
   }
 
-  // withdraw(){
-  //   var acno1=this.acno1
-  //   var psw1=this.psw1
-  //   var amnt1=this.amnt1
+  withdraw(){
+    var acno1=this.acno1
+    var psw1=this.psw1
+    var amnt1=this.amnt1
 
-  //   const result=this.ds.deposit(acno1,psw1,amnt1)
+    const result=this.ds.withdraw(acno1,psw1,amnt1)
 
-  //   if(result){
-  //     alert(`${amnt1} debited to your ac and the balance is ${result}`)
-  //   }else{
-  //     alert('incorrect acno or password')
-  //   }
-
-  // }
+    if(result){
+      alert(`${amnt1} debited from your ac and the balance is ${result}`)
+    }
+  }
 }
