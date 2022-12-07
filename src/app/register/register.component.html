@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="register()">
     <div class="container w-50 border mt-5 p-3" style="background:rgba(29, 47, 41, 0.5); " id="fo">
         <h1 class="text-center text-white">Registration Form</h1>
         
@@ -15,7 +15,7 @@
         </div>
 
         <div class="text-center mt-2 p-2">
-            <button type="submit" (click)="register()" class="btn btn-success" class="bu">signup</button><br><br>
+            <button type="submit"  class="btn btn-success" class="bu">signup</button><br><br>
         </div>
     </div>
 </form>

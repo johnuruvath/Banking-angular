@@ -1,7 +1,7 @@
 <div>
     <h1 class="heading">{{aim}}</h1>
 </div>
-<form>
+<form (ngSubmit)="login()">
     <div class="container w-25 border mt-5 p-3" style="background:rgba(29, 47, 41, 0.5); " id="fo">
         <h1 class="text-center text-white">Login Page</h1>
         
@@ -14,7 +14,7 @@
         </div>
 
         <div class="text-center mt-2 p-2">
-            <button type="submit" (click)="login()" class="btn btn-success" class="bu">login</button><br><br>
+            <button type="submit"  class="btn btn-success" class="bu">login</button><br><br>
             <p  class="text-white">new user?  <a class="re" routerLink="register">Register</a></p>
         </div>
     </div>
