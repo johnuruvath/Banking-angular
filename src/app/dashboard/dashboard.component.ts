@@ -16,31 +16,36 @@ export class DashboardComponent {
   acno1=""
   psw1=""
   amnt1=""
-  constructor(private ds:DataService){}
+
+  user=""
+  constructor(private ds:DataService){
+    //access username
+    this.user=this.ds.currentuser
+  }
 
 
-  deposit(){
-    var acno=this.acno
-    var psw=this.psw
-    var amnt=this.amnt
+  deposit() {
+    var acno = this.acno
+    var psw = this.psw
+    var amnt = this.amnt
 
-    const result=this.ds.deposit(acno,psw,amnt)
+    const result = this.ds.deposit(acno, psw, amnt)
 
-    if(result){
+    if (result) {
       alert(`${amnt} credited to your ac and the balance is ${result}`)
-    }else{
+    } else {
       alert('incorrect acno or password')
     }
   }
 
-  withdraw(){
-    var acno1=this.acno1
-    var psw1=this.psw1
-    var amnt1=this.amnt1
+  withdraw() {
+    var acno1 = this.acno1
+    var psw1 = this.psw1
+    var amnt1 = this.amnt1
 
-    const result=this.ds.withdraw(acno1,psw1,amnt1)
+    const result = this.ds.withdraw(acno1, psw1, amnt1)
 
-    if(result){
+    if (result) {
       alert(`${amnt1} debited from your ac and the balance is ${result}`)
     }
   }
