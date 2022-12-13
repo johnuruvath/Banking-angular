@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { DataService } from '../services/data.service';
 export class TransactionComponent {
   acno:any
   transaction:any
+
   constructor(private ds:DataService) {
 
     this.acno=this.ds.currentacno
