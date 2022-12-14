@@ -37,3 +37,13 @@
     transition: 0.1s;
     
 }
+.logout{
+    position: fixed;
+    right: 5%;
+    top: 5%;
+}
+.delete{
+    position: fixed;
+    right: 5%;
+    top: 18%;
+}

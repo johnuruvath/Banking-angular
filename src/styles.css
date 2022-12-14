@@ -3,3 +3,6 @@ body{
     background-image: url('./assets/invbg.jpg');
     background-size: cover;
 }
+.style{
+    opacity: 0;
+}

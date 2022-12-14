@@ -1,7 +1,13 @@
 <h1 class="text-white p-4 ">Welcome {{user}}</h1>
-<a style="background:rgba(29, 47, 41, 0.5); " class="p-4 ms-3 " routerLink="/transaction">View transaction history</a>
+<h4 class="text-white p-4 "> {{dateandtime | date: 'short'}}</h4>
 
-<form (ngSubmit)="deposit()" [formGroup]="depositForm">
+<a style="background:rgba(29, 47, 41, 0.5); " class="p-4 ms-3 " routerLink="/transaction">View transaction history</a>
+<a style="background:rgba(29, 47, 41, 0.5); " class="p-4 ms-3 logout" (click)="logout()">Logout</a>
+<a style="background:rgba(29, 47, 41, 0.5); " class="p-4 ms-3 delete"(click)="delteconfirm()" >Delete</a>
+
+<app-deleteconfirm [item]="acno"></app-deleteconfirm>
+
+<form [ngClass]="acno?'style':''" (ngSubmit)="deposit()" [formGroup]="depositForm">
     <div class="container w-25 border mt-4 p-3" style="background:rgba(29, 47, 41, 0.5); " id="fo">
         <h1 class="text-center text-white">Deposit</h1>
         
@@ -33,7 +39,7 @@
     </div>
 </form>
 
-<form (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
+<form [ngClass]="acno?'style':''" (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
     <div class="container w-25 border mt-4 p-3" style="background:rgba(29, 47, 41, 0.5); " id="fo">
         <h1 class="text-center text-white">Withdraw</h1>
         
