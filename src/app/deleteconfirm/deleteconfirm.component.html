@@ -1,6 +1,6 @@
 <div *ngIf="item" class="container w-50 border border-white text-center p-5" style="background-color: rgba(110,136,150,0.5);">
     <h4 class="text-white">Are you sure you want to Delete this account {{item}}?</h4>
-    <button class="btn btn-outline-info mt-5">Yes</button> 
-    <button  class="ms-3 btn btn-outline-info mt-5">No</button>
+    <button (click)="delete()" class="btn btn-outline-info mt-5">Yes</button> 
+    <button (click)="cancel()" class="ms-3 btn btn-outline-info mt-5">No</button>
 </div>
 

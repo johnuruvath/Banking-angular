@@ -13,8 +13,16 @@ export class TransactionComponent {
 
   constructor(private ds:DataService) {
 
-    this.acno=this.ds.currentacno
-    this.transaction=this.ds.gettransaction(this.acno)
+    this.acno=JSON.parse(localStorage.getItem('currentacno') || "")
+    
+    
+    this.ds.gettransaction(this.acno).subscribe((result:any)=>{
+      this.transaction=result.message
+      console.log(this.transaction);
+    },
+    (result:any)=>{
+      alert(result.error.message)
+    })
 
   }
 

@@ -25,9 +25,11 @@ export class DashboardComponent {
     
     this.dateandtime=new Date()
 
+    if(localStorage.getItem('currentuser')){
+      //access username
+    this.user =JSON.parse(localStorage.getItem('currentuser')|| '')
+    }
     
-    //access username
-    this.user = this.ds.currentuser
   }
 
   depositForm = this.fb.group({ acno: ['', [Validators.required, Validators.pattern('[0-9]+')]], psw: ['', [Validators.required, Validators.pattern('[0-9]+')]], amnt: ['', [Validators.required, Validators.pattern('[0-9]+')]] })
@@ -35,7 +37,7 @@ export class DashboardComponent {
   
   
   ngOnInit():void{
-    if(!localStorage.getItem("currentacno")){
+    if(!localStorage.getItem("token")){
       alert("please login first")
       this.router.navigateByUrl('')
     }
@@ -47,45 +49,60 @@ export class DashboardComponent {
     var psw = this.depositForm.value.psw
     var amnt = this.depositForm.value.amnt
 
-    if (this.depositForm.valid) {
+   
 
-      const result = this.ds.deposit(acno, psw, amnt)
-
-      if (result) {
-        alert(`${amnt} credited to your ac and the balance is ${result}`)
-      } else {
-        alert('incorrect acno or password')
-      }
-    } else {
-      alert("invalid form")
+      this.ds.deposit(acno, psw, amnt).subscribe((result:any)=>{
+        alert(`${amnt} is credited to your ac and the balance is ${result.message}`)
+      },
+      result=>{
+        alert(result.error.message)
+      })
     }
-  }
 
+      
   withdraw() {
     var acno1 = this.withdrawForm.value.acno1
     var psw1 = this.withdrawForm.value.psw1
     var amnt1 = this.withdrawForm.value.amnt1
 
-    if (this.withdrawForm.valid) {
+   
 
 
-      const result = this.ds.withdraw(acno1, psw1, amnt1)
+     this.ds.withdraw(acno1, psw1, amnt1).subscribe((result:any)=>{
+      alert(`${amnt1} is credited to your ac and the balance is ${result.message}`)
+     },
+     result=>{
+      alert(result.error.message)
+    })
+  
 
-      if (result) {
-        alert(`${amnt1} debited from your ac and the balance is ${result}`)
-      }
-    } else {
-      alert("invalid form")
-    }
+      
   }
+
+
   logout() {
     localStorage.removeItem("currentuser")
     localStorage.removeItem("currentacno")
+    localStorage.removeItem("token")
     this.router.navigateByUrl('')
 
   }
   delteconfirm(){
     this.acno=JSON.parse(localStorage.getItem('currentacno') || '')
   }
-
+  oncancel(){
+    this.acno=""
+  }
+  
+  delete(event:any){
+    this.ds.deleteacc(event).subscribe((result:any)=>{
+      alert(result.message)
+      this.logout()
+    },
+    result=>{
+      
+      alert(result.error.message)
+    })
+    //alert(event)
+  }
 }

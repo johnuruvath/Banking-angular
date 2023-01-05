@@ -30,16 +30,18 @@ registerForm=this.fb.group({
     if (this.registerForm.valid) {
 
 
-
-      const result = this.ds.register(acno, uname, psw)
-
-      if (result) {
-        alert("registration success")
+     this.ds.register(acno, uname, psw).subscribe((result:any)=>{
+        alert(result.message)
         this.router.navigateByUrl('')
-      } else {
-        alert("user already exist")
+      },
+      result=>{
+        alert(result.error.message)
         this.router.navigateByUrl('')
+        
       }
+      )
+
+      
     }
     else {
       alert("invalid form")
